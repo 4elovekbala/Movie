@@ -1,0 +1,33 @@
+.searchWrapper {
+   width: 40%;
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+   flex-wrap: nowrap;
+
+   .search {
+      margin-right: 30px;
+
+      .searchContainer {
+         cursor: pointer;
+         font-size: 18px;
+         color: #828187;
+         transition: color .1s linear;
+
+         &:hover {
+            color: #FFFF;
+         }
+      }
+   }
+
+   .cabinetLogo {
+      cursor: pointer;
+      font-size: 36px;
+      color: #828187;
+      transition: color .1s linear;
+
+      &:hover {
+         color: #FFFF;
+      }
+   }
+}

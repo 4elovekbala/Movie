@@ -1,0 +1,49 @@
+.select {
+   max-width: 150px;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   flex-direction: column;
+   list-style: none;
+   background-color: #312b45;
+   position: absolute;
+   top: 60px;
+   left: 10px;
+   z-index: 999;
+   cursor: pointer;
+   transition: background-color .2s linear;
+   border-radius: 2px;
+   text-align: left;
+
+   .selectItem {
+      width: 100%;
+      height: 100%;
+      color: #FFFF;
+      padding: 15px 0;
+      padding-left: 15px;
+      display: none;
+
+      &:hover {
+         background-color: #7e798f;
+      }
+   }
+
+   .block {
+      display: block;
+   }
+}
+
+.vote {
+   max-width: 260px;
+   left: 180px;
+}
+
+.year {
+   max-width: 150px;
+   left: 460px;
+}
+
+.actors {
+   top: 10px;
+}

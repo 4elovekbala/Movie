@@ -1,0 +1,21 @@
+/* buttons */
+.rightButton,
+.leftButton {
+   font-size: 36px;
+   color: #FFFF;
+   position: absolute;
+   cursor: pointer;
+   top: 50%;
+   background: transparent;
+   z-index: 2;
+}
+
+.rightButton {
+   right: -50px;
+}
+
+.leftButton {
+   left: -50px;
+}
+
+/* buttons */

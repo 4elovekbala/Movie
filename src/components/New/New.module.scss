@@ -1,0 +1,209 @@
+.titleWrapper {
+   max-width: 868px;
+   margin: 20px auto;
+   background-color: #1f1b2e;
+   padding-left: 20px;
+   border-radius: 10px;
+
+   .title {
+      font-size: 18px;
+      display: inline-block;
+      color: #FFFF;
+      background-color: #7e798f;
+      padding: 5px 15px;
+      border-radius: 10px;
+      margin: 0;
+   }
+}
+
+.container {
+   display: flex;
+   flex-direction: column;
+
+   .cardWrapper {
+      width: 100%;
+      margin-bottom: 20px;
+
+      .card {
+         width: 70%;
+         margin: 0 auto;
+         height: auto;
+         background-color: #1f1b2e;
+         border-radius: 30px;
+         padding: 20px;
+         padding-bottom: 10px;
+
+         .text {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: nowrap;
+            height: 80px;
+            margin-top: 20px;
+
+            .titleSection {
+               width: 50%;
+
+               .title {
+                  color: #FFFFFF;
+                  margin-bottom: 10px;
+               }
+
+               .textContainer {
+                  .rateText {
+                     display: inline-block;
+                     color: #FFFFFF;
+                     font-weight: bold;
+                     background-color: #7e798f;
+                     text-align: center;
+                     padding: 3px;
+                     border-radius: 4px;
+                     margin-right: 5px;
+                     min-width: 28px;
+                  }
+
+                  .green {
+                     background-color: #73a32f;
+                  }
+
+                  .date,
+                  .genres {
+                     font-weight: 400;
+                     color: #7e798f;
+                  }
+               }
+            }
+
+            .subtitleSection {
+               width: 50%;
+               color: #d9d7e0;
+               height: 80px;
+               overflow: hidden;
+               text-overflow: ellipsis;
+            }
+         }
+
+         .image {
+            width: 100%;
+            height: auto;
+
+         }
+
+         .btnWrapper {
+            width: 100%;
+            text-align: right;
+
+            .btn {
+               color: #FFFF;
+               font-weight: bold;
+               background: transparent;
+               outline: none;
+               border: none;
+               margin-top: 8px;
+               display: inline-block;
+               cursor: pointer;
+            }
+         }
+      }
+
+      .height {
+         height: auto !important;
+      }
+   }
+
+   .miniCardWrapper {
+      width: 70%;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      padding: 20px;
+      padding-bottom: 10px;
+      border-radius: 30px;
+      background-color: #1f1b2e;
+      transition: transform .3s linear;
+      cursor: pointer;
+      position: relative;
+
+      .playBtn {
+         position: absolute;
+         width: 200px;
+         padding: 5px 15px;
+         background-color: #ea003d;
+         border: none;
+         outline: none;
+         border-radius: 5px;
+         color: #FFFF;
+         text-transform: uppercase;
+         top: 50%;
+         left: 70px;
+         transition: background-color, opacity .2s ease-in-out;
+         cursor: pointer;
+         opacity: 0;
+         letter-spacing: 5px;
+
+         &:hover {
+            background-color: #f13668;
+         }
+      }
+
+      &:hover {
+         transform: translateY(5px);
+
+         .playBtn {
+            opacity: .9;
+         }
+      }
+
+      .miniCard {
+         display: flex;
+         justify-content: space-between;
+         align-items: flex-start;
+         flex-wrap: nowrap;
+
+         .miniImage {
+            width: 300px;
+         }
+
+         .nextSection {
+            padding: 0 10px;
+
+            .miniOverview {
+               color: #d9d7e0;
+               overflow: hidden;
+               text-overflow: ellipsis;
+               height: 58px;
+            }
+
+            .textSection {
+               .miniTitleItem {
+                  color: #FFFF;
+                  margin-bottom: 5px;
+                  margin-top: 5px;
+               }
+
+               .miniRateText {
+                  display: inline-block;
+                  color: #FFFFFF;
+                  font-weight: bold;
+                  min-width: 28px;
+                  background-color: #7e798f;
+                  text-align: center;
+                  padding: 3px;
+                  border-radius: 4px;
+                  margin-right: 5px;
+               }
+
+               .green {
+                  background-color: #73a32f;
+               }
+
+               .miniDate,
+               .genres {
+                  font-weight: 400;
+                  color: #7e798f;
+               }
+
+            }
+         }
+      }
+   }
+}

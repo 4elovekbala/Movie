@@ -1,0 +1,130 @@
+.wrapper {
+   margin-top: 30px;
+   background-color: #312b45;
+   border-radius: 10px;
+   padding: 10px 20px;
+   display: flex;
+   justify-content: space-between;
+   align-items: flex-start;
+   flex-wrap: nowrap;
+
+   .textInfo {
+      width: 70%;
+
+      .heading {
+         .title {
+            color: #FFFF;
+            margin: 0;
+         }
+
+         .tagname {
+            color: #7e798f;
+            margin: 15px 0;
+         }
+
+         .date {
+            color: #a5a1b2;
+
+            .genres {}
+
+            .time {
+               .clock {
+                  color: #ea003d;
+                  margin-left: 20px;
+               }
+
+               .timeItem {
+                  .timeMinutes {
+                     font-size: 18px;
+                  }
+               }
+            }
+         }
+
+         .companyWrapper {
+            display: inline-flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #a5a1b2;
+            font-weight: bold;
+            margin-top: 15px;
+
+            .company {
+               margin-right: 15px;
+
+               &:first-child {
+                  margin-left: 10px;
+               }
+
+               &:last-child {
+                  margin-right: 0;
+               }
+
+               .companyLogo {
+                  width: 185px;
+                  height: 50px;
+               }
+            }
+         }
+
+         .country {
+            color: #a5a1b2;
+            font-weight: bold;
+            margin-top: 15px;
+
+            .countryItem {
+               font-weight: 400;
+               margin-right: 10px;
+
+               &:first-child {
+                  margin-left: 15px;
+               }
+
+               &:last-child {
+                  margin-right: 0;
+               }
+            }
+         }
+      }
+
+      .bottom {
+         .progress {
+            margin: 15px 0;
+         }
+
+         .money {
+
+            .votes,
+            .budget,
+            .revenue {
+               color: #a5a1b2;
+               font-weight: bold;
+            }
+
+            .budget {
+               margin: 15px 0;
+            }
+         }
+      }
+   }
+
+   .imageWrapper {
+      width: 25%;
+
+      .image {
+         max-width: 100%;
+         border-radius: 10px;
+      }
+
+      .overview {
+         font-size: 14px;
+         color: #a5a1b2;
+         margin-top: 10px;
+      }
+   }
+
+}
+
+.slider {
+   margin-top: 50px;
+}

@@ -1,24 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
+import Serials from './components/Serials/Serials';
+import Actors from './components/Actors/Actors';
+import Layout from './components/Layout/Layout';
+import Slick from './components/Slick/Slick';
+import Section from './components/Section/Section';
+import Movies from './components/Movies/Movies';
+import New from './components/New/New';
+import CardInfo from './components/CardInfo/CardInfo';
+
+import { 
+  HashRouter,
+  Routes, 
+  Route
+} from 'react-router-dom';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}> 
+          <Route index element={
+            <>
+              <Slick />
+              <div className="section">
+                <Section />
+              </div>
+            </>
+          } />
+          <Route path="news" element={<New />} />
+          <Route path="movies" element={<Movies title={"Фильмы"} />} />
+          <Route path="movies/:id" element={<CardInfo mode={"фильмы"} />} />
+          <Route path="serials" element={<Serials title={"Сериалы"} />} />
+          <Route path="serials/:id" element={<CardInfo mode={"сериалы"} />} />
+          <Route path="actors" element={<Actors title={"Популярные Актеры"} />} />
+        </Route> 
+      </Routes>
+    </HashRouter>
+    </>
   );
 }
 

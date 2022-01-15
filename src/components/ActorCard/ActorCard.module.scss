@@ -1,0 +1,153 @@
+.wrapper {
+   margin: 10px;
+   margin-right: 50px;
+   background-color: #1f1b2e;
+   border-radius: 10px;
+   transition: transfrom .6s ease-in-out;
+
+   &:hover {
+      transform: translateY(-10px);
+
+      .inner {
+         &::after {
+            opacity: 1;
+         }
+      }
+   }
+
+   .inner {
+      width: 100%;
+      border-radius: 10px;
+      padding: 5px;
+      cursor: pointer;
+      position: relative;
+
+      &::after {
+         width: 100%;
+         height: 292px;
+         content: "Show more";
+         position: absolute;
+         top: 0;
+         left: 0;
+         z-index: 3;
+         font-size: 24px;
+         color: #FFFF;
+         text-align: center;
+         font-weight: bold;
+         text-transform: uppercase;
+         line-height: 292px;
+         background: rgba(0, 0, 0, .6);
+         transition: opacity 0.2s linear;
+         opacity: 0;
+         border-radius: 10px;
+      }
+
+      .image {
+         width: 235px;
+         height: auto;
+         border-radius: 10px;
+      }
+
+      .noImage {
+         border-radius: 10px;
+         background-color: #dbdbdb;
+
+         .noImageItem {
+            width: 235px;
+            height: 235px;
+            border-radius: 10px;
+         }
+      }
+
+      .nameWrapper {
+         width: 100%;
+         text-align: center;
+
+         .name {
+            font-size: 18px;
+            color: #FFFF;
+
+         }
+      }
+   }
+}
+
+
+.popUp {
+   width: 100%;
+   height: 100%;
+   position: relative;
+
+   .wrapperPop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(7, 5, 14, .96);
+      z-index: 9999;
+
+
+      .close {
+         width: 100%;
+         text-align: right;
+         color: #FFFF;
+         font-size: 36px;
+         margin-top: 20px;
+         padding-right: 20px;
+         cursor: pointer;
+      }
+
+      .innerPop {
+         max-width: 1240px;
+         margin: 0 auto;
+         min-height: 450px;
+         border-radius: 10px;
+         padding: 20px;
+         width: 100%;
+         background-color: #1f1b2e;
+
+         display: flex;
+         justify-content: space-between;
+         align-items: flex-start;
+         flex-wrap: nowrap;
+
+         .imageContent {
+            .date {
+               margin-top: 10px;
+               font-weight: bold;
+            }
+
+            .nameWrapper {
+               color: #FFFF;
+               text-align: center;
+
+               .name {}
+            }
+         }
+
+         .textContent {
+            margin-left: 20px;
+            display: flex;
+            flex-direction: column;
+
+            .biography {
+               color: #FFFF;
+               margin-bottom: 10px;
+            }
+
+            .movies {
+               display: flex;
+               justify-content: flex-start;
+               align-items: center;
+               flex-wrap: nowrap;
+               width: 100%;
+
+               .moviesItemWrapper {
+                  margin-right: 50px;
+               }
+            }
+         }
+      }
+   }
+}

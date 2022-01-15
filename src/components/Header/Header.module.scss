@@ -1,0 +1,13 @@
+.headerContainer {
+   max-width: 1240px;
+   margin: 20px auto;
+
+   .header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: nowrap;
+      padding: 0 10px;
+   }
+}
