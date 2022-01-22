@@ -5,5 +5,7 @@
 ## 2) Find your liked movie and get information about it
 ## 3) You can see the popular actors
 ## 4) Sort and filter movies by multiple values
-## 5) See the similar movies you liked <br>
+## 5) See the similar movies you liked 
+## Other features coming soon...
+<br>
 https://4elovekbala.github.io/Movie/
