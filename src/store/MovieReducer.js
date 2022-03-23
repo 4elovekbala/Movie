@@ -104,9 +104,14 @@ export const resetSort = () => {
 }
 
 export const addMoviesThunk = (page) => {
-   return (dispatch) => {
-      getNowPlayingMovies(page).then(response => {
-         dispatch(addNowPlayingMovies(response.data.results))
-      })
+   return async (dispatch) => {
+      try{
+         const response = await getNowPlayingMovies(page);
+         const data = response.data.results;
+         dispatch(addNowPlayingMovies(data));
+      }
+      catch(error){
+         throw new Error(error);
+      }
    }
 }

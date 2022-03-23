@@ -105,9 +105,14 @@ export const resetSort = () => {
 }
 
 export const addMoviesThunk = (page) => {
-   return (dispatch) => {
-      getPopularSerials(page).then(response => {
-         dispatch(addPopularSerials(response.data.results))
-      })
+   return async (dispatch) => {
+      try{
+         const response = await getPopularSerials(page);
+         const data = response.data.results;
+         dispatch(addPopularSerials(data));
+      }
+      catch(error){
+         throw new Error(error);
+      }
    }
 }

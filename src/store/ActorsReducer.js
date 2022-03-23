@@ -88,9 +88,13 @@ export const resetSort = () => {
 }
 
 export const addMoviesThunk = (page) => {
-   return (dispatch) => {
-      getActors(page).then(response => {
-         dispatch(addActors(response.data.results))
-      })
+   return async (dispatch) => {
+      try {
+         const response = await getActors(page);
+         const data = response.data.results;
+         dispatch(addActors(data));
+      } catch (error) {
+         throw new Error(error);
+      }
    }
 }

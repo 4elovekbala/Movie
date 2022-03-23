@@ -4,16 +4,21 @@ import { allgenres } from '../genres';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle } from '@fortawesome/free-regular-svg-icons';
 import { NavLink } from 'react-router-dom';
+import { getSimilar, getExactMovie, getSerialExact, getSerialSimilar } from '../../store/MovieCardReducer';
+import { useDispatch } from 'react-redux';
 
 const SectionCard = ({id, title, background, genre, country, date, rate, panel, mode}) => {
+   const dispatch = useDispatch();
 
-
-   const clickHandler = () => {
-      setTimeout(() => {
-         window.location.reload();
-      }, 100);
+   const clickHandler = (id) => {
+      if(mode === 'фильмы'){
+         dispatch(getSimilar(id));
+         dispatch(getExactMovie(id));
+      } else {
+         dispatch(getSerialExact(id));
+         dispatch(getSerialSimilar(id));
+      }
    }
-   
 
    const getGenres = allgenres.filter(function(v) {
          return genre.some(function(v2) {
@@ -24,7 +29,7 @@ const SectionCard = ({id, title, background, genre, country, date, rate, panel, 
 
    return (
       <>
-         <NavLink onClick={clickHandler} to={mode === 'фильмы' ? `/movies/${id}` : `/serials/${id}`} className={panel ? `${css.cardWrapper} ${css.cardWrapperPanel}` : css.cardWrapper} id={id}>
+         <NavLink onClick={(e) => clickHandler(id)} to={mode === 'фильмы' ? `/movies/${id}` : `/serials/${id}`} className={panel ? `${css.cardWrapper} ${css.cardWrapperPanel}` : css.cardWrapper} id={id}>
             <div className={css.card}>
                <img className={css.image} src={SECTION_CARD_POSTER_URL + background} alt="Poster" />
                <FontAwesomeIcon icon={faPlayCircle} className={css.play} />
