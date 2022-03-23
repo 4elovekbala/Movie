@@ -40,25 +40,25 @@ export const SectionReducer = (state = initialState, action) => {
       case POPULAR_MOVIE:
          return {
             ...state,
-               popular_movie: {
-                  "name": "Популярные фильмы",
-                  "array": [...action.payload.array],
-                  "isFetching": true,
-               },
+            popular_movie: {
+               "name": "Популярные фильмы",
+               "array": [...action.payload.array],
+               "isFetching": true,
+            },
          };
       case UPCOMING_MOVIE:
          return {
             ...state,
-               upcoming_movie: {
-                  "name": "Предстоящие фильмы",
-                  "array": [...action.payload.array],
-                  "isFetching": true,
-               },
+            upcoming_movie: {
+               "name": "Предстоящие фильмы",
+               "array": [...action.payload.array],
+               "isFetching": true,
+            },
          };
       case ON_THE_AIR_SERIALS:
          return {
             ...state,
-               now_serials: {
+            now_serials: {
                   "name": "Сериалы этой недели",
                   "array": [...action.payload.array],
                   "isFetching": true,
@@ -68,7 +68,7 @@ export const SectionReducer = (state = initialState, action) => {
       case POPULAR_SERIALS:
          return {
             ...state,
-               popular_serials: {
+            popular_serials: {
                   "name": "Популярные сериалы",
                   "array": [...action.payload.array],
                   "isFetching": true,
@@ -78,11 +78,11 @@ export const SectionReducer = (state = initialState, action) => {
       case TOP_RATED_SERIALS:
          return {
             ...state,
-               top_rated_serials: {
-                  "name": "Лучшие сериалы",
-                  "array": [...action.payload.array],
-                  "isFetching": true,
-               },
+            top_rated_serials: {
+               "name": "Лучшие сериалы",
+               "array": [...action.payload.array],
+               "isFetching": true,
+            },
          };
       default:
          return {
@@ -155,23 +155,14 @@ const addTopRatedSerials = (arr) => {
 
 export const addMoviesThunk = () => {
    return (dispatch) => {
-      getNowPlayingMovies().then(response => {
-         dispatch(addNowPlayingMovies(response.data.results))
-      })
-      getPopularMovies().then(response => {
-         dispatch(addPopularMovie(response.data.results))
-      })
-      getUpcomingMovies().then(response => {
-         dispatch(addUpcomingMovies(response.data.results))
-      })
-      getNowPlayingSerials().then(response => {
-         dispatch(addNowPlayingSerials(response.data.results))
-      })
-      getPopularSerials().then(response => {
-         dispatch(addPopularSerials(response.data.results))
-      })
-      getTopRatedSerials().then(response => {
-         dispatch(addTopRatedSerials(response.data.results))
-      })
+      Promise.all([getNowPlayingMovies(), getPopularMovies(), getUpcomingMovies(), getNowPlayingSerials(), getPopularSerials(), getTopRatedSerials()])
+         .then(response => {
+            dispatch(addNowPlayingMovies(response[0].data.results));
+            dispatch(addPopularMovie(response[1].data.results));
+            dispatch(addUpcomingMovies(response[2].data.results));
+            dispatch(addNowPlayingSerials(response[3].data.results));
+            dispatch(addPopularSerials(response[4].data.results));
+            dispatch(addTopRatedSerials(response[5].data.results));
+         });
    }
 }

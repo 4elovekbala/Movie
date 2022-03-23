@@ -109,35 +109,51 @@ const addSimilar = (arr) => {
 
 
 export const getSimilar = (id) => {
-   return (dispatch) => {
-      getSimilarMovies(id).then(response => {
-         dispatch(addSimilar(response.data.results))
-      })
+   return async (dispatch) => {
+      try {
+         const response = await getSimilarMovies(id);
+         const data = response.data.results;
+         dispatch(addSimilar(data));
+      } catch (error) {
+         throw new Error(error);
+      }
    }
 }
 
 
 export const getExactMovie = (id) => {
-   return (dispatch) => {
-      getExactMovieInfo(id).then(response => {
-         dispatch(showData(response.data))
-      })
+   return async (dispatch) => {
+      try {
+         const response = await getExactMovieInfo(id);
+         const data = response.data;
+         dispatch(showData(data));
+      } catch (error) {
+         throw new Error(error);
+      }
    }
 }
 
 
 export const getSerialSimilar = (id) => {
-   return (dispatch) => {
-      getExactSerial(id).then(response => {
-         dispatch(showData(response.data))
-      })
+   return async (dispatch) => {
+      try {
+         const response = await getExactSerial(id);
+         const data = response.data;
+         dispatch(showData(data));
+      } catch (error) {
+         throw new Error(error);
+      }
    }
 }
 
 export const getSerialExact = (id) => {
-   return (dispatch) => {
-      getSimilarSerials(id).then(response => {
-         dispatch(addSimilar(response.data.results))
-      })
+   return async (dispatch) => {
+      try {
+         const response = await getSimilarSerials(id);
+         const data = response.data.results;
+         dispatch(addSimilar(data));
+      } catch (error) {
+         throw new Error(error);
+      }
    }
 }

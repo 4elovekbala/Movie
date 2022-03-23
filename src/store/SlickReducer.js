@@ -33,9 +33,13 @@ const addMoviesToSlider = (arr) => {
 
 
 export const addMoviesToSliderThunk = () => {
-   return (dispatch) => {
-      getSlickMovies().then(response => {
-         dispatch(addMoviesToSlider(response.data.results));
-      })
+   return async (dispatch) => {
+      try {
+         const response = await getSlickMovies();
+         const data = response.data.results;
+         dispatch(addMoviesToSlider(data));
+      } catch (error) {
+         throw new Error(error);
+      }
    }
 }
