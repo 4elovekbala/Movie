@@ -14,6 +14,9 @@ export const ADD_ACTORS = `ADD_ACTORS`;
 export const ADD_EXACT_MOVIE = `ADD_EXACT_MOVIE`;
 export const ADD_SIMILAR = `ADD_SIMILAR`;
 export const ADD_EXACT_ACTOR = `ADD_EXACT_ACTOR`;
+export const CHANGE_FETCHING_SECTION = `CHANGE_FETCHING_SECTION`;
+export const SET_POP_UP = `SET_POP_UP`;
+export const CLOSE_POP_UP = `CLOSE_POP_UP`;
 /* store */
 
 /* api urls */

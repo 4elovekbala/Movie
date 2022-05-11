@@ -40,7 +40,7 @@ const Layout = (state) => {
    }
 
    return (
-      <>
+      <div className={css.container}>
          {
             search && <div className={css.popUp}>
                         <div className={css.popUpWrapper}>
@@ -87,7 +87,7 @@ const Layout = (state) => {
             <Header search={search} setSearch={setSearch} />
             <Outlet />
          </div>
-      </>
+      </div>
    );
 }
 

@@ -7,6 +7,7 @@ import { MovieReducer } from './MovieReducer';
 import { SerialReducer } from './SerialReducer';
 import { ActorsReducer } from "./ActorsReducer";
 import { MovieCardReducer } from './MovieCardReducer';
+import { PopUpReducer } from "./PopUpReducer";
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 let rootReducer = combineReducers({
@@ -16,6 +17,7 @@ let rootReducer = combineReducers({
    SerialReducer,
    ActorsReducer,
    MovieCardReducer,
+   PopUpReducer,
 });
 
 let store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));

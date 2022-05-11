@@ -1,15 +1,13 @@
-.wrapper {
-   max-width: 1240px;
-   margin: 0 auto;
-}
-
-.popUp {
-   width: 100%;
-   height: 100%;
+.container {
    position: relative;
 
-   .popUpWrapper {
-      position: fixed;
+   .wrapper {
+      max-width: 1240px;
+      margin: 0 auto;
+   }
+
+   .popUp {
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
@@ -17,111 +15,113 @@
       background-color: rgba(7, 5, 14, .96);
       z-index: 9999;
 
-      .close {
-         width: 100%;
-         text-align: right;
-         color: #FFFF;
-         font-size: 36px;
-         margin-top: 20px;
-         padding-right: 20px;
-         cursor: pointer;
-      }
-
-      .popUpInner {
-         margin: 0 auto;
-         margin-top: 100px;
-         width: 100%;
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         flex-direction: column;
-
-         .searchTitle {
-            max-width: 810px;
-            margin: 0 auto;
+      .popUpWrapper {
+         .close {
             width: 100%;
-            display: block;
+            text-align: right;
             color: #FFFF;
-            margin-bottom: 30px;
+            font-size: 36px;
+            margin-top: 20px;
+            padding-right: 20px;
+            cursor: pointer;
          }
 
-         .searchInput {
-            position: relative;
-
-            .input {
-               width: 810px;
-               height: 45px;
-               padding: 10px;
-               padding-left: 20px;
-               font-weight: bold;
-               text-transform: lowercase;
-               color: #1f1b2e;
-               background-color: #d9d7e0;
-               border: none;
-               outline: none;
-               border-radius: 10px;
-               text-transform: capitalize;
-            }
-
-            .button {
-               padding: 5px 15px;
-               border: none;
-               outline: none;
-               background-color: transparent;
-               color: #000000;
-               font-size: 18px;
-               text-transform: capitalize;
-               border-radius: 10px;
-               cursor: pointer;
-               position: absolute;
-               right: 0;
-               top: 7px;
-               font-weight: bold;
-            }
-         }
-
-         .movies {
-            max-width: 810px;
-            width: 100%;
+         .popUpInner {
             margin: 0 auto;
+            margin-top: 100px;
+            width: 100%;
             display: flex;
-            justify-content: flex-start;
+            justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
-            color: #FFFF;
-            margin-top: 30px;
-            overflow-y: auto;
+            flex-direction: column;
 
-            .movieWrapper {
-               width: 400px;
-               height: 30px;
+            .searchTitle {
+               max-width: 810px;
+               margin: 0 auto;
+               width: 100%;
+               display: block;
+               color: #FFFF;
+               margin-bottom: 30px;
+            }
+
+            .searchInput {
+               position: relative;
+
+               .input {
+                  width: 810px;
+                  height: 45px;
+                  padding: 10px;
+                  padding-left: 20px;
+                  font-weight: bold;
+                  text-transform: lowercase;
+                  color: #1f1b2e;
+                  background-color: #d9d7e0;
+                  border: none;
+                  outline: none;
+                  border-radius: 10px;
+                  text-transform: capitalize;
+               }
+
+               .button {
+                  padding: 5px 15px;
+                  border: none;
+                  outline: none;
+                  background-color: transparent;
+                  color: #000000;
+                  font-size: 18px;
+                  text-transform: capitalize;
+                  border-radius: 10px;
+                  cursor: pointer;
+                  position: absolute;
+                  right: 0;
+                  top: 7px;
+                  font-weight: bold;
+               }
+            }
+
+            .movies {
+               max-width: 810px;
+               width: 100%;
+               margin: 0 auto;
                display: flex;
                justify-content: flex-start;
                align-items: center;
-               flex-wrap: nowrap;
-               margin: 10px 0;
+               flex-wrap: wrap;
+               color: #FFFF;
+               margin-top: 30px;
+               overflow-y: auto;
 
-               &:hover {
-                  cursor: pointer;
+               .movieWrapper {
+                  width: 400px;
+                  height: 30px;
+                  display: flex;
+                  justify-content: flex-start;
+                  align-items: center;
+                  flex-wrap: nowrap;
+                  margin: 10px 0;
+
+                  &:hover {
+                     cursor: pointer;
+
+                     .textContent {
+                        .movieTitle {
+                           color: rgb(234, 0, 61);
+                           transform: translateY(-1px);
+                        }
+                     }
+                  }
+
+                  .icon {
+                     margin-right: 10px;
+                     color: rgb(234, 0, 61);
+                     font-size: 24px;
+                  }
 
                   .textContent {
                      .movieTitle {
-                        color: rgb(234, 0, 61);
-                        transform: translateY(-1px);
+                        font-size: 14px;
+                        color: #a5a1b2;
                      }
-                  }
-               }
-
-               .icon {
-                  margin-right: 10px;
-                  color: rgb(234, 0, 61);
-                  font-size: 24px;
-               }
-
-               .textContent {
-                  .movieTitle {
-                     font-size: 14px;
-                     color: #a5a1b2;
                   }
                }
             }

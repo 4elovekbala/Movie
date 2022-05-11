@@ -13,9 +13,20 @@ import {
   Routes, 
   Route
 } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { addMoviesThunk } from './store/SectionReducer';
+import { addMoviesToSliderThunk } from './store/SlickReducer';
 
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(addMoviesThunk());
+    dispatch(addMoviesToSliderThunk());
+  }, [])
+
   return (
     <>
     <HashRouter>
