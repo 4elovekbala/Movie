@@ -22,11 +22,6 @@ const Section = (state) => {
       }
    }, [state.isFetching])
 
-
-   useEffect(() => {
-      console.log(sectionArray);
-   }, [sectionArray])
-
     const settings = {
       infinite: false,
       speed: 500,
