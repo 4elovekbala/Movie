@@ -14,6 +14,15 @@ export const ADD_ACTORS = `ADD_ACTORS`;
 export const ADD_EXACT_MOVIE = `ADD_EXACT_MOVIE`;
 export const ADD_SIMILAR = `ADD_SIMILAR`;
 export const ADD_EXACT_ACTOR = `ADD_EXACT_ACTOR`;
+export const CHANGE_FETCHING_SECTION = `CHANGE_FETCHING_SECTION`;
+export const SET_POP_UP = `SET_POP_UP`;
+export const CLOSE_POP_UP = `CLOSE_POP_UP`;
+export const GET_GUEST = `GET_GUEST`;
+export const GET_USER = `GET_USER`;
+export const USER_FETCHING = `USER_FETCHING`;
+export const GET_REQUEST_TOKEN = `GET_REQUEST_TOKEN`;
+export const GET_SESSION_ID = `GET_SESSION_ID`;
+export const GET_USER_INFO = `GET_USER_INFO`;
 /* store */
 
 /* api urls */

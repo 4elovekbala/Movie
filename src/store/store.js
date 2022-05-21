@@ -8,6 +8,8 @@ import { SerialReducer } from './SerialReducer';
 import { ActorsReducer } from "./ActorsReducer";
 import { MovieCardReducer } from './MovieCardReducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import { AuthReducer } from "./AuthReducer";
+import UserReducer from "./UserReducer";
 
 let rootReducer = combineReducers({
    SlickReducer,
@@ -16,6 +18,8 @@ let rootReducer = combineReducers({
    SerialReducer,
    ActorsReducer,
    MovieCardReducer,
+   auth : AuthReducer,
+   user : UserReducer,
 });
 
 let store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));

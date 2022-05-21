@@ -4,9 +4,7 @@ import { useEffect, useState } from 'react';
 import { API_KEY } from '../../store/types';
 import { faTimesCircle } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { NextArrow, PreviousArrow } from '../Slick/buttons/Arrows';
 import SectionCard from '../SectionCard/SectionCard';
-import Slider from 'react-slick';
 
 const ActorCard = ({name, image, id, movies, fetching}) => {
    const [moreInfo, setMoreInfo] = useState(false);

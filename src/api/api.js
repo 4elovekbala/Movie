@@ -61,3 +61,29 @@ export const getSimilarSerials = (id) => {
 export const getExactActor = (id) => {
   return instanse.get(`3/person/${id}?api_key=${API_KEY}&language=en-US`);
 }
+
+export const getSessionForGuest = () => {
+  return instanse.get(`3/authentication/guest_session/new?api_key=${API_KEY}`);
+}
+
+export const createToken = () => {
+  return instanse.get(`3/authentication/token/new?api_key=${API_KEY}`);
+}
+
+export const getUserRequest = ({username, password, request_token}) => {
+  return instanse.post(`3/authentication/token/validate_with_login?api_key=${API_KEY}`, {
+    username: username,
+    password: password,
+    request_token: request_token,
+  })
+}
+
+export const getUserInfo = ({session_id}) => {
+  return instanse.get(`3/account?api_key=${API_KEY}&session_id=${session_id}`)
+}
+
+export const createSession = ({request_token}) => {
+  return instanse.post(`3/authentication/session/new?api_key=${API_KEY}`, {
+    request_token : request_token
+  })
+}

@@ -3,6 +3,10 @@
       .title {
          color: #ffff;
       }
+
+      &:last-child {
+         margin-bottom: 50px;
+      }
    }
 
    .slickSection {

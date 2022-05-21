@@ -8,10 +8,6 @@ import Slider from "react-slick";
 import { NavLink } from 'react-router-dom';
 
 const Slick = (state) => {
-   useEffect(() => {
-      state.fetchSliderMovies();
-   }, []);
-
    const settings = {
       infinite: true,
       speed: 500,

@@ -5,6 +5,7 @@ import {
    ON_THE_AIR_SERIALS,
    POPULAR_SERIALS,
    TOP_RATED_SERIALS,
+   CHANGE_FETCHING_SECTION,
 } from './types';
 
 import {
@@ -23,6 +24,7 @@ const initialState = {
    now_serials: {},
    popular_serials: {},
    top_rated_serials: {},
+   isFetching: false,
 };
 
 
@@ -34,7 +36,6 @@ export const SectionReducer = (state = initialState, action) => {
             now_movie: {
                "name": "Сейчас в кино",
                "array": [...action.payload.array],
-               "isFetching": true,
             },
          };
       case POPULAR_MOVIE:
@@ -43,7 +44,6 @@ export const SectionReducer = (state = initialState, action) => {
             popular_movie: {
                "name": "Популярные фильмы",
                "array": [...action.payload.array],
-               "isFetching": true,
             },
          };
       case UPCOMING_MOVIE:
@@ -52,7 +52,6 @@ export const SectionReducer = (state = initialState, action) => {
             upcoming_movie: {
                "name": "Предстоящие фильмы",
                "array": [...action.payload.array],
-               "isFetching": true,
             },
          };
       case ON_THE_AIR_SERIALS:
@@ -61,7 +60,6 @@ export const SectionReducer = (state = initialState, action) => {
             now_serials: {
                   "name": "Сериалы этой недели",
                   "array": [...action.payload.array],
-                  "isFetching": true,
                },
 
          };
@@ -71,7 +69,6 @@ export const SectionReducer = (state = initialState, action) => {
             popular_serials: {
                   "name": "Популярные сериалы",
                   "array": [...action.payload.array],
-                  "isFetching": true,
                },
 
          };
@@ -81,8 +78,12 @@ export const SectionReducer = (state = initialState, action) => {
             top_rated_serials: {
                "name": "Лучшие сериалы",
                "array": [...action.payload.array],
-               "isFetching": true,
             },
+         };
+      case CHANGE_FETCHING_SECTION:
+         return {
+            ...state,
+            isFetching: action.payload.isFetching,
          };
       default:
          return {
@@ -153,6 +154,15 @@ const addTopRatedSerials = (arr) => {
    }
 }
 
+const changeIsFetching = () => {
+   return {
+      type: CHANGE_FETCHING_SECTION,
+      payload: {
+         isFetching: true
+      }
+   }
+}
+
 export const addMoviesThunk = () => {
    return (dispatch) => {
       Promise.all([getNowPlayingMovies(), getPopularMovies(), getUpcomingMovies(), getNowPlayingSerials(), getPopularSerials(), getTopRatedSerials()])
@@ -163,6 +173,7 @@ export const addMoviesThunk = () => {
             dispatch(addNowPlayingSerials(response[3].data.results));
             dispatch(addPopularSerials(response[4].data.results));
             dispatch(addTopRatedSerials(response[5].data.results));
+            dispatch(changeIsFetching());
          });
    }
 }

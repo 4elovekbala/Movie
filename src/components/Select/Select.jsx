@@ -2,7 +2,7 @@ import css from './Select.module.scss';
 
 const Select = ({arr, selectValueHandler, clickHandler, select, selectValue, vote, year, actors}) => {
    return (
-      <ul className={`${css.select} ${vote ? css.vote : ""} ${year ? css.year : ""} ${actors ? css.actors : ""}`}>
+      <ul className={`${css.select} ${vote ? css.vote : ""} ${year ? css.year : ""} ${actors ? css.actors : ""} ${select && !actors && css.selected}`}>
          <li className={`${css.selectItem} ${css.block}`} onClick={clickHandler}>
             {selectValue}
          </li>

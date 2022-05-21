@@ -1,6 +1,7 @@
 .select {
    max-width: 150px;
    width: 100%;
+   max-height: 500px;
    display: flex;
    justify-content: center;
    flex-wrap: wrap;
@@ -31,12 +32,17 @@
 
    .block {
       display: block;
+      max-width: 150px;
    }
 }
 
 .vote {
-   max-width: 260px;
+   max-width: 260px !important;
    left: 180px;
+
+   .block {
+      max-width: 260px;
+   }
 }
 
 .year {
@@ -46,4 +52,9 @@
 
 .actors {
    top: 10px;
+}
+
+.selected {
+   max-width: 460px;
+   z-index: 1000;
 }
