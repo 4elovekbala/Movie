@@ -23,6 +23,8 @@ export const USER_FETCHING = `USER_FETCHING`;
 export const GET_REQUEST_TOKEN = `GET_REQUEST_TOKEN`;
 export const GET_SESSION_ID = `GET_SESSION_ID`;
 export const GET_USER_INFO = `GET_USER_INFO`;
+export const DELETE_USER_INFO = `DELETE_USER_INFO`;
+export const RATE_MOVIE = `RATE_MOVIE`;
 /* store */
 
 /* api urls */

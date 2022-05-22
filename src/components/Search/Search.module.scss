@@ -6,8 +6,25 @@
    flex-wrap: nowrap;
 
 
-   .user{
-      color : #FFF;
+   .user {
+      color: #FFF;
+
+      .userPage {
+         display: flex;
+         flex-wrap: nowrap;
+         gap: 10px;
+
+         a {
+            cursor: pointer;
+            color: #FFF;
+            font-weight: bold;
+            text-decoration: none;
+         }
+
+         p {
+            cursor: pointer;
+         }
+      }
    }
 
    .search {
