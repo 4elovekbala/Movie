@@ -87,3 +87,21 @@ export const createSession = ({request_token}) => {
     request_token : request_token
   })
 }
+
+export const deleteSession = ({session_id}) => {
+  return instanse.delete(`3/authentication/session?api_key=${API_KEY}`, { 
+    data: { 
+      session_id : session_id 
+    } 
+  })
+}
+
+export const rateMovieRequest = ({value, movie_id, guest_session, user_session}) => {
+  const session = guest_session ? 'guest_session_id' : 'session_id';
+  const session_id = guest_session ? guest_session : user_session;
+  return instanse.post(`3/movie/${movie_id}/rating?api_key=${API_KEY}&${session}=${session_id}`, {
+    value : value
+  }, {
+    'Content-Type' : 'application/json;charset=utf-8'
+  });
+}

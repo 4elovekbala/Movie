@@ -1,6 +1,7 @@
 import {
    ADD_EXACT_MOVIE,
-   ADD_SIMILAR
+   ADD_SIMILAR,
+   RATE_MOVIE,
 } from './types';
 
 import {
@@ -8,6 +9,7 @@ import {
    getSimilarMovies,
    getExactSerial,
    getSimilarSerials,
+   rateMovieRequest,
 } from '../api/api';
 
 let initialState = {
@@ -57,8 +59,17 @@ export const MovieCardReducer = (state = initialState, action) => {
                   budget: action.payload.budget,
                   production_companies: action.payload.production_companies,
                   production_countries: action.payload.production_countries,
+                  rated: action.payload.rated,
                },
                fetching: true,
+         };
+      case RATE_MOVIE:
+         return {
+            ...state,
+            movie : {
+               ...state.movie,
+               rated: true,
+            }
          };
       case ADD_SIMILAR:
          return {
@@ -94,6 +105,7 @@ const showData = (data) => {
          production_companies: data.production_companies,
          production_countries: data.production_countries,
          status: data.status,
+         rated: false,
       }
    }
 }
@@ -154,6 +166,37 @@ export const getSerialExact = (id) => {
          dispatch(addSimilar(data));
       } catch (error) {
          throw new Error(error);
+      }
+   }
+}
+
+const rateMovie = () => {
+   return {
+      type: RATE_MOVIE,
+   }
+}
+
+export const rateMovieThunk = ({
+   value,
+   movie_id,
+   guest_session,
+   user_session
+}) => {
+   return async (dispatch) => {
+      try {
+         const {
+            data
+         } = await rateMovieRequest({
+            value,
+            movie_id,
+            guest_session,
+            user_session
+         });
+         if (data.success) {
+            dispatch(rateMovie());
+         }
+      } catch (e) {
+         console.error(e)
       }
    }
 }

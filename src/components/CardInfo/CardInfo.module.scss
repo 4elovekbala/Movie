@@ -92,6 +92,37 @@
             margin: 15px 0;
          }
 
+         .rateText {
+            margin-bottom: 15px;
+            color: #a5a1b2;
+         }
+
+         .rateMovie {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+
+            button {
+               outline: none;
+               border-radius: 3px;
+               background-color: transparent;
+               padding: 5px;
+               cursor: pointer;
+               border-color: #a5a1b2;
+               color: #a5a1b2;
+            }
+
+            input {
+               cursor: pointer;
+            }
+
+            p {
+               color: #a5a1b2;
+               font-weight: bold;
+            }
+         }
+
          .money {
 
             .votes,

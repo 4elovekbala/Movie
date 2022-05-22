@@ -1,19 +1,24 @@
-import { useEffect } from 'react';
-import { connect } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getExactMovie, getSimilar, getSerialSimilar, getSerialExact } from '../../store/MovieCardReducer';
 import { faStopwatch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { LOGO_URL, SECTION_CARD_POSTER_URL, POSTER_URL } from '../../store/types';
+import { LOGO_URL, SECTION_CARD_POSTER_URL } from '../../store/types';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import Slider from "react-slick";
 import {NextArrow, PreviousArrow} from "../Slick/buttons/Arrows";
 import SectionCard from '../SectionCard/SectionCard';
 import css from './CardInfo.module.scss';
+import { rateMovieThunk } from '../../store/MovieCardReducer';
 
 
 const CardInfo = ({fetchMovie, fetchSimilarMovie, movie, similar_movies, isFetching, mode, fetchSerial, fetchSimilarSerial}) => {
    const { id } = useParams();
+   const dispatch = useDispatch();
+   const { user, guest, session_id } = useSelector(state => state.auth);
+   const data = useSelector(state => state.MovieCardReducer);
+   const [value, setValue] = useState(1);
    
    useEffect(() => {
       if(mode === "фильмы"){
@@ -49,6 +54,24 @@ const CardInfo = ({fetchMovie, fetchSimilarMovie, movie, similar_movies, isFetch
             }).join("");
       } else {
          return 0;
+      }
+   }
+
+   const clickHandler = () => {
+      if(!user.success){
+         dispatch(rateMovieThunk({
+            value : value,
+            movie_id : id,
+            guest_session : guest.guest_session_id,
+            user_session : null,
+         }));
+      } else{
+         dispatch(rateMovieThunk({
+            value : value,
+            movie_id : id,
+            guest_session : null,
+            user_session : session_id,
+         }));
       }
    }
 
@@ -118,6 +141,21 @@ const CardInfo = ({fetchMovie, fetchSimilarMovie, movie, similar_movies, isFetch
                            })}
                            />
                      </div>
+                     {
+                        data.movie.rated ? <h3 className={css.rateText}>Thanks for your rate!</h3> : <>
+                           {
+                              mode === 'фильмы' && <div className={css.rateMovie}>
+                                 <>
+                                    <input 
+                                    onChange={(e) => setValue(e.currentTarget.value)} 
+                                    value={value}
+                                    type="range" min="1" max="10" /> <p>{value}</p>
+                                 </>
+                                 <button onClick={clickHandler}>Rate movie</button>
+                              </div>
+                           }
+                        </>
+                     }
                      <div className={css.money}>
                         <p className={css.votes}>
                            Общее количество голосов : {movie.totalVote}

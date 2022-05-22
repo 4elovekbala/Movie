@@ -5,7 +5,8 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getSessionIdThunk } from '../../store/AuthReducer';
-import { getUserInfoThunk } from '../../store/UserReducer';
+import { deleteUserThunk, getUserInfoThunk } from '../../store/UserReducer';
+import { NavLink } from 'react-router-dom';
 
 const Search = ({setLogin, setSearch}) => {
    const data = useSelector(state => state.auth);
@@ -25,6 +26,10 @@ const Search = ({setLogin, setSearch}) => {
       }
    }, [session_id])
 
+   const logOutHanlder = () => {
+      dispatch(deleteUserThunk({session_id : session_id.session_id}));
+   }
+
    return (
       <div className={css.searchWrapper}>
          <div className={css.search}>
@@ -32,12 +37,12 @@ const Search = ({setLogin, setSearch}) => {
                <FontAwesomeIcon icon={faSearch} className={css.searchItem} /> Поиск
             </span>
          </div>
-         <span onClick={() => setLogin(true)} className={css.user}>
+         <span className={css.user}>
             {
-               userInfo.success ? <>
-                  <h1>{userInfo.username}</h1>
-                  <p>Logout</p>
-               </> : <FontAwesomeIcon icon={faUserCircle} className={css.cabinetLogo} />
+               userInfo.success ? <div className={css.userPage}>
+                  <NavLink to={`user/${userInfo.id}`}>{userInfo.username}</NavLink>
+                  <p onClick={logOutHanlder}>Logout</p>
+               </div> : <FontAwesomeIcon onClick={() => setLogin(true)} icon={faUserCircle} className={css.cabinetLogo} />
             }
          </span>
       </div>

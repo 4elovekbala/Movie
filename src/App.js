@@ -8,6 +8,7 @@ import Movies from './components/Movies/Movies';
 import New from './components/New/New';
 import CardInfo from './components/CardInfo/CardInfo';
 import User from './components/User/User';
+import NotFound from './components/404';
 
 import { 
   HashRouter,
@@ -59,11 +60,12 @@ function App() {
           <Route path="serials" element={<Serials title={"Сериалы"} />} />
           <Route path="serials/:id" element={<CardInfo mode={"сериалы"} />} />
           <Route path="actors" element={<Actors title={"Популярные Актеры"} />} />
-          <Route path="user" element={
+          <Route path="user/:id" element={
             <ProtectedRoute>
               <User />
             </ProtectedRoute>
           } />
+          <Route path="*" element={<NotFound />} />
         </Route> 
       </Routes>
     </HashRouter>

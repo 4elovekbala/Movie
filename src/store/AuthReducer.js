@@ -3,13 +3,13 @@ import {
    GET_GUEST,
    USER_FETCHING,
    GET_REQUEST_TOKEN,
-   GET_SESSION_ID,
+   GET_SESSION_ID
 } from './types';
 
 import {
    createSession,
    getSessionForGuest,
-   getUserRequest,
+   getUserRequest
 } from '../api/api';
 
 
